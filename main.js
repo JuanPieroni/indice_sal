@@ -1,7 +1,4 @@
-let betainaCoco = 32.5;
-let cocoGlu = 53;
-let lauryl = 51.5;
-let decly = 53;
+
 
 //preguntar que producto voy a formular
 let productoIngresado = parseInt(prompt(`Ingrese el producto que desesa formular:
@@ -22,15 +19,14 @@ class Producto {
         this.sal_maxima = parseFloat(sal_maxima);
          
     }
-
 };
 
 const jabonLiquido = new Producto("Jabon Liquido", 8, 10);
 const limpiadorFacial = new Producto("Limpiador Facial", 7, 10);
 const shampoo = new Producto("Shampoo", 10, 15);
-const gelDucha = new Producto("Gel Ducha", 15, 25);
-const jabonManos = new Producto("Jabon Manos", 5, 20);
-const bañoBurbujas = new Producto("Baño Burbujas", 20, 25);
+const gelDucha = new Producto("Gel de Ducha", 15, 25);
+const jabonManos = new Producto("Jabon para Manos", 5, 20);
+const bañoBurbujas = new Producto("Baño de Burbujas", 20, 25);
 const jabonLiquidoPielSeca = new Producto("Jabon Liquido Piel Normal a Grasa", 12, 15);
 const limpiadorFacialPielSeca = new Producto("Limpiador Facial Piel Seca y Sensible", 6, 10);
 
@@ -55,7 +51,19 @@ if (productoIngresado == 1) {
     alert("Ingrese una opcion valida")
 }
 console.log(productoIngresado);
- 
+
+
+class Tensions {
+    constructor(name, valor) {
+        this.name = name;
+        this.valor = parseFloat(valor);
+    }
+}
+const betainaCoco = new Tensions ("Betaina de Coco", 32.5);
+const cocoGlu = new Tensions ("Coco Glucocido", 53);
+const lauryl = new Tensions ("Lauryl Glucocido", 51.5);
+const decly = new Tensions ("Decyl Glucocido",53);
+
 //ingrese el 1er porcentaje de tensioactivo a usar
 let tensioActivo1 = parseFloat(prompt(`Ingrese el 1er tensioactivo a usar
 1) Betaina de Coco 
@@ -96,21 +104,28 @@ let porcentajeTensioActivo2 = parseFloat(prompt("Ingrese el porcentaje del 2do T
 
 //multiplicar por su Sal Media
 
-let indiceDeSal = (porcentajeTensioActivo1 * tensioActivo1 + porcentajeTensioActivo2 * tensioActivo2) / 100
-alert(`El indice de sal obtenido es de ${indiceDeSal}%`)
+let indiceDeSal = (porcentajeTensioActivo1 * tensioActivo1.valor + porcentajeTensioActivo2 * tensioActivo2.valor) / 100
+alert(` Ingresaste ${tensioActivo1.name} en un ${porcentajeTensioActivo1}% y ${tensioActivo2.name} en un ${porcentajeTensioActivo2}%.
+El indice de sal obtenido es de ${indiceDeSal}%.`)
  
 if(indiceDeSal > productoIngresado.sal_minima && indiceDeSal < productoIngresado.sal_maxima){
-    alert(`    La formula de tensioactivos esta dentro de los parámetros
+    alert(`    La formula de tensioactivos está dentro de los parámetros
     
-    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}.`)
+    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
+    
+    Obtenido: ${indiceDeSal}`)
 } else if (indiceDeSal < productoIngresado.sal_minima) {
-   alert (`    La fórmula de tensioactivos esta por debajo de los parámetros
+   alert (`    La fórmula de tensioactivos está por debajo de los parámetros
    
-   El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}.`)
+   El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
+    
+   Obtenido: ${indiceDeSal}`)
 } else  {
-    alert(`    La fórmula de tensioactivos esta por encima de los parámetros
+    alert(`    La fórmula de tensioactivos está por encima de los parámetros
    
-    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}.`)
+    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
+    
+    Obtenido: ${indiceDeSal}%`)
 }
 
  
