@@ -30,7 +30,7 @@ const bañoBurbujas = new Producto("Baño de Burbujas", 20, 25);
 const jabonLiquidoPielSeca = new Producto("Jabon Liquido Piel Normal a Grasa", 12, 15);
 const limpiadorFacialPielSeca = new Producto("Limpiador Facial Piel Seca y Sensible", 6, 10);
 
-//esto no funciona. Preguntar
+
 if (productoIngresado == 1) {
     productoIngresado = jabonLiquido
 } else if (productoIngresado == 2) {
@@ -65,7 +65,8 @@ const lauryl = new Tensions ("Lauryl Glucocido", 51.5);
 const decly = new Tensions ("Decyl Glucocido",53);
 
 //ingrese el 1er porcentaje de tensioactivo a usar
-let tensioActivo1 = parseFloat(prompt(`Ingrese el 1er tensioactivo a usar
+let tensioActivo1 = parseFloat(prompt(`Vas a elaborar:  ${productoIngresado.nombre.toUpperCase()} 
+Ingrese el 1er tensioactivo a usar:
 1) Betaina de Coco 
 2) Coco Glucocido
 3) Lauryl Glucocido
@@ -81,10 +82,10 @@ if (tensioActivo1 == 1) {
     tensioActivo1 = decly
 }
 console.log(tensioActivo1)
-let porcentajeTensioActivo1 = parseFloat(prompt("Ingrese el porcentaje del 1er Tensioactivo"))
+let porcentajeTensioActivo1 = parseFloat(prompt(`Ingrese el porcentaje de ${tensioActivo1.name}`))
 //ingrese el 2do porcentaje de tensioactivo a usar 
 
-let tensioActivo2 = parseFloat(prompt(`Ingrese el 2do tensioactivo a usar
+let tensioActivo2 = parseFloat(prompt(`Ingrese el 2do tensioactivo a usar:
 1) Betaina de Coco 
 2) Coco Glucocido
 3) Lauryl Glucocido
@@ -100,32 +101,32 @@ if (tensioActivo2 == 1) {
     tensioActivo2 = decly
 }
 console.log(tensioActivo2)
-let porcentajeTensioActivo2 = parseFloat(prompt("Ingrese el porcentaje del 2do Tensioactivo"))
+let porcentajeTensioActivo2 = parseFloat(prompt(`Ingrese el porcentaje de ${tensioActivo2.name}`))
 
 //multiplicar por su Sal Media
 
 let indiceDeSal = (porcentajeTensioActivo1 * tensioActivo1.valor + porcentajeTensioActivo2 * tensioActivo2.valor) / 100
 alert(` Ingresaste ${tensioActivo1.name} en un ${porcentajeTensioActivo1}% y ${tensioActivo2.name} en un ${porcentajeTensioActivo2}%.
-El indice de sal obtenido es de ${indiceDeSal}%.`)
+El indice de sal obtenido es de ${indiceDeSal.toFixed(2)}%.`)
  
 if(indiceDeSal > productoIngresado.sal_minima && indiceDeSal < productoIngresado.sal_maxima){
     alert(`    La formula de tensioactivos está dentro de los parámetros
     
     El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-    Obtenido: ${indiceDeSal}`)
+    Obtenido: ${indiceDeSal.toFixed(2)}`)
 } else if (indiceDeSal < productoIngresado.sal_minima) {
    alert (`    La fórmula de tensioactivos está por debajo de los parámetros
    
    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-   Obtenido: ${indiceDeSal}`)
+   Obtenido: ${indiceDeSal.toFixed(2)}`)
 } else  {
     alert(`    La fórmula de tensioactivos está por encima de los parámetros
    
     El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-    Obtenido: ${indiceDeSal}%`)
+    Obtenido: ${indiceDeSal.toFixed(2)}%`)
 }
 
  
