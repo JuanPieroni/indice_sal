@@ -114,19 +114,25 @@ if(indiceDeSal > productoIngresado.sal_minima && indiceDeSal < productoIngresado
     
     El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-    Obtenido: ${indiceDeSal.toFixed(2)}`)
+    Obtenido: ${indiceDeSal.toFixed(2)}% de:
+              ${tensioActivo1.name} - ${porcentajeTensioActivo1}%
+              ${tensioActivo2.name} - ${porcentajeTensioActivo2}%`)
 } else if (indiceDeSal < productoIngresado.sal_minima) {
    alert (`    La fórmula de tensioactivos está por debajo de los parámetros
    
    El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-   Obtenido: ${indiceDeSal.toFixed(2)}`)
+   Obtenido: ${indiceDeSal.toFixed(2)}% de:
+             ${tensioActivo1.name} - ${porcentajeTensioActivo1}%
+             ${tensioActivo2.name} - ${porcentajeTensioActivo2}%`)
 } else  {
     alert(`    La fórmula de tensioactivos está por encima de los parámetros
    
     El producto ${productoIngresado.nombre} requiere un índice de sal mínimo de ${productoIngresado.sal_minima}% y un máximo de ${productoIngresado.sal_maxima}%.
     
-    Obtenido: ${indiceDeSal.toFixed(2)}%`)
+    Obtenido: ${indiceDeSal.toFixed(2)}% de:
+              ${tensioActivo1.name} - ${porcentajeTensioActivo1}%
+              ${tensioActivo2.name} - ${porcentajeTensioActivo2}%`)
 }
 
  
